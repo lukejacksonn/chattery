@@ -10,3 +10,23 @@ This action takes advantage of [talky.io](https://talky.io) to generate on deman
 - No plugins or browser extensions required
 - Unlimited collaboration rooms
 - Install from the GitHub Marketplace
+
+## Usage
+
+- Requires the `GITHUB_TOKEN` secret.
+
+### Sample workflow
+
+```yml
+name: example
+on: pull_request
+jobs:
+  example:
+    name: chatter
+    runs-on: ubuntu-latest
+    steps:
+      - name: comment PR
+        uses: lukejacksonn/chatter@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```

@@ -4,12 +4,6 @@ description: Creates on demand chatrooms for pull requests
 branding:
   icon: 'message-square'
   color: 'blue'
-inputs:
-  msg:
-    description: A chatroom has been created for this pull request..
-    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.msg }}

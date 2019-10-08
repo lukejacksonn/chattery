@@ -13,11 +13,6 @@ if !ENV["GITHUB_TOKEN"]
   exit(1)
 end
 
-if ARGV.empty?
-  puts "Missing message argument."
-  exit(1)
-end
-
 repo = push["repository"]["full_name"]
 pulls = github.pull_requests(repo, state: "open")
 
@@ -29,7 +24,8 @@ if !pr
   exit(1)
 end
 
-message = ARGV.join(' ')
+uuid=$(uuidgen)
+message = "https://talky.io/#{uuid}"
 
 coms = github.issue_comments(repo, pr["number"])
 duplicate = coms.find { |c| c["user"]["login"] == "github-actions[bot]" && c["body"] == message }
