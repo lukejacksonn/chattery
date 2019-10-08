@@ -28,10 +28,10 @@ if !pr
 end
 
 uuid = SecureRandom.uuid
-message = "https://talky.io/#{uuid}"
+message = "Here is a link to a chatroom for this pull request..\nhttps://talky.io/#{uuid}"
 
 coms = github.issue_comments(repo, pr["number"])
-duplicate = coms.find { |c| c["user"]["login"] == "github-actions[bot]" && c["body"] == message }
+duplicate = coms.find { |c| c["user"]["login"] == "github-actions[bot]" && c["body"] =~ /https:\/\/talky\.io/i }
 
 if duplicate
   puts "A chatroom has already been created for this pull request"
