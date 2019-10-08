@@ -1,0 +1,9 @@
+name: chatter
+author: Luke Jackson <lukejacksonn@gmail.com>
+description: Creates on demand chatrooms for pull requests
+branding:
+  icon: 'message-square'
+  color: 'blue'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

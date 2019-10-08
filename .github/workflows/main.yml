@@ -1,0 +1,11 @@
+name: PR
+on: pull_request
+jobs:
+  chatter:
+    name: chatter
+    runs-on: ubuntu-latest
+    steps:
+      - name: post comment
+        uses: ./.github/actions/test
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
