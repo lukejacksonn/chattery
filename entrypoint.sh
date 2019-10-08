@@ -2,6 +2,7 @@
 
 require "json"
 require "octokit"
+require "securerandom"
 
 json = File.read(ENV.fetch("GITHUB_EVENT_PATH"))
 push = JSON.parse(json)
@@ -24,7 +25,7 @@ if !pr
   exit(1)
 end
 
-uuid=$(uuidgen)
+uuid = SecureRandom.uuid
 message = "https://talky.io/#{uuid}"
 
 coms = github.issue_comments(repo, pr["number"])
