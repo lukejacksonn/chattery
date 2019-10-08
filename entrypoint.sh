@@ -7,6 +7,8 @@ require "securerandom"
 json = File.read(ENV.fetch("GITHUB_EVENT_PATH"))
 push = JSON.parse(json)
 
+print JSON.pretty_generate(push)
+
 github = Octokit::Client.new(access_token: ENV["GITHUB_TOKEN"])
 
 if !ENV["GITHUB_TOKEN"]
