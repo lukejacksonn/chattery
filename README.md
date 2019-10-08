@@ -18,14 +18,14 @@ This action takes advantage of [talky.io](https://talky.io) to generate on deman
 ### Sample workflow
 
 ```yml
-name: example
+name: PR
 on: pull_request
 jobs:
-  example:
+  chatter:
     name: chatter
     runs-on: ubuntu-latest
     steps:
-      - name: comment PR
+      - name: post comment
         uses: lukejacksonn/chatter@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
